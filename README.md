@@ -20,7 +20,8 @@ at https://github.com/pramsey/postgis-vagrant
 
 ## Requirements
 
-* Vagrant installed.
+* [VirtualBox](https://www.virtualbox.org/) installed.
+* [Vagrant](https://www.vagrantup.com/downloads.html) installed.
 * Coffee brewed.
 * Music tuned.
 
