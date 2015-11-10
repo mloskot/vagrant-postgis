@@ -25,6 +25,12 @@ at https://github.com/pramsey/postgis-vagrant
 * Coffee brewed.
 * Music tuned.
 
+## Installation
+
+* `git clone` this repository or [download ZIP](https://github.com/mloskot/vagrant-postgis/archive/master.zip).
+* `cd vagrant-postgis`
+* Follow the [Usage](#usage) section.
+
 ## Usage
   
 * `vagrant up` to create and boot the guest virtual machine.
