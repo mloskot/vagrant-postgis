@@ -3,6 +3,8 @@
 [Vagrant](https://www.vagrantup.com/) configuration to provide users with
 virtual environment for hassle-free fun with [PostGIS](http://postgis.net).
 
+Looking for PostGIS on Windows VM? Check https://github.com/mloskot/vagrant-postgis-windows
+
 Looking for PostGIS development environment? Check Paul Ramsey's Vagrant setup
 at https://github.com/pramsey/postgis-vagrant
 
