@@ -35,4 +35,6 @@ sudo service postgresql restart
 echo "PostgreSQL: DONE"
 echo "PostgreSQL: to connect to the database server from your host,"
 echo "            use the host IP and port 6543"
+echo "Guest IP address:"
+/sbin/ifconfig | grep 'inet addr:'
 echo "Bootstrap: DONE"
