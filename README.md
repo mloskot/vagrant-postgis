@@ -15,6 +15,7 @@ at https://github.com/pramsey/postgis-vagrant
 * PostgreSQL 9.4 (official packages)
 * PostgGIS 2.1.8 (official packages)
 * Pre-configured with
+  * Vagrant default user: `vagrant` with password `vagrant`
   * Port forwarding from host `6543` to guest `5432`.
   * PostgreSQL server with admin and non-admin user.
   * Sample PostgreSQL user `pggis` (password: `pggis`) created.
