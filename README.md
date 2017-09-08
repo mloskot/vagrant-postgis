@@ -11,9 +11,9 @@ at https://github.com/pramsey/postgis-vagrant
 
 ## Features
 
-* Ubuntu 15.10
-* PostgreSQL 9.4 (official packages)
-* PostgGIS 2.1.8 (official packages)
+* Ubuntu 17.04
+* PostgreSQL 9.6 (official packages)
+* PostgGIS 2.3 (official packages)
 * Pre-configured with
   * Vagrant default user: `vagrant` with password `vagrant`
   * Port forwarding from host `6543` to guest `5432`.
