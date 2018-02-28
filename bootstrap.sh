@@ -4,6 +4,10 @@
 # Pre-installation
 export PGGIS_USER=pggis
 export PGGIS_PASS=pggis
+##  seems 
+echo "Bootstrap: enabling NOPASSWD in /etc/sudoers in case no /etc/sudoers.d/vagrant or broken"
+sudo sed -i -e '/Defaults\s\+env_reset/a Defaults\texempt_group=sudo' /etc/sudoers
+sudo sed -i -e 's/%sudo\s*ALL=(ALL:ALL) ALL/%sudo\tALL=(ALL) NOPASSWD:ALL/g' /etc/sudoers
 echo "Bootstrap: setting common environment in /etc/profile.d/vagrant-postgis.sh"
 sudo sh -c "echo 'PGGIS_USER=${PGGIS_USER}' > /etc/profile.d/vagrant-postgis.sh"
 sudo sh -c "echo 'PGGIS_PASS=${PGGIS_PASS}' >> /etc/profile.d/vagrant-postgis.sh"
@@ -36,5 +40,5 @@ echo "PostgreSQL: DONE"
 echo "PostgreSQL: to connect to the database server from your host,"
 echo "            use the host IP and port 6543"
 echo "Guest IP address:"
-/sbin/ifconfig | grep 'inet addr:'
+/sbin/ifconfig | grep 'inet'
 echo "Bootstrap: DONE"
