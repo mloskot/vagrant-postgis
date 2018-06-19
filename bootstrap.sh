@@ -4,7 +4,6 @@
 # Pre-installation
 export PGGIS_USER=pggis
 export PGGIS_PASS=pggis
-##  seems 
 echo "Bootstrap: enabling NOPASSWD in /etc/sudoers in case no /etc/sudoers.d/vagrant or broken"
 sudo sed -i -e '/Defaults\s\+env_reset/a Defaults\texempt_group=sudo' /etc/sudoers
 sudo sed -i -e 's/%sudo\s*ALL=(ALL:ALL) ALL/%sudo\tALL=(ALL) NOPASSWD:ALL/g' /etc/sudoers
@@ -20,9 +19,11 @@ sudo apt-get -y -q install \
   postgresql-contrib
 # Post-installation
 echo "PostgreSQL: updating /etc/postgresql/9.6/main/postgresql.conf"
-sudo sed -i "s/#listen_address.*/listen_addresses '*'/" /etc/postgresql/9.6/main/postgresql.conf
-echo "Enabled listen_addresses '*'"
+sudo cp /etc/postgresql/9.6/main/postgresql.conf /etc/postgresql/9.6/main/postgresql.conf.original
+sudo sed -i "s/#listen_address.*/listen_addresses = '*'/" /etc/postgresql/9.6/main/postgresql.conf
+echo "Enabled listen_addresses = '*'"
 echo "PostgreSQL: updating /etc/postgresql/9.6/main/pg_hba.conf"
+sudo cp /etc/postgresql/9.6/main/pg_hba.conf /etc/postgresql/9.6/main/pg_hba.conf.original
 sudo sh -c 'cat >> /etc/postgresql/9.6/main/pg_hba.conf <<EOF
 # Accept all IPv4 connections - NOT FOR PRODUCTION
 host    all         all         0.0.0.0/0             md5
