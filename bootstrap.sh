@@ -24,7 +24,7 @@ sudo sed -i "s/#listen_address.*/listen_addresses = '*'/" /etc/postgresql/9.6/ma
 echo "Enabled listen_addresses = '*'"
 echo "PostgreSQL: updating /etc/postgresql/9.6/main/pg_hba.conf"
 sudo cp /etc/postgresql/9.6/main/pg_hba.conf /etc/postgresql/9.6/main/pg_hba.conf.original
-sudo sed -i "s/peer$/\ttrust$/" /etc/postgresql/9.6/main/pg_hba.conf
+sudo sed -i "s/peer$/trust/" /etc/postgresql/9.6/main/pg_hba.conf
 sudo sh -c 'cat >> /etc/postgresql/9.6/main/pg_hba.conf <<EOF
 # Accept all IPv4 connections - NOT FOR PRODUCTION
 host    all         all         0.0.0.0/0             md5
@@ -32,7 +32,7 @@ EOF'
 echo "Enabled acccepting all IPv4 connections"
 echo "PostgreSQL: creating user ${PGGIS_USER}/${PGGIS_PASS}"
 sudo -u postgres psql -c "CREATE ROLE ${PGGIS_USER} WITH LOGIN SUPERUSER CREATEDB ENCRYPTED PASSWORD '${PGGIS_USER}'"
-echo "PostgreSQL: creating database ${PGGIS_USER} with PostGIS i"
+echo "PostgreSQL: creating database ${PGGIS_USER} with PostGIS extension"
 #sudo -u postgres dropdb --if-exists ${PGGIS_USER}
 sudo -u postgres createdb ${PGGIS_USER} --owner=${PGGIS_USER}
 sudo -u postgres psql -d ${PGGIS_USER} -c "CREATE EXTENSION postgis;"
