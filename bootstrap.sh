@@ -24,6 +24,7 @@ sudo sed -i "s/#listen_address.*/listen_addresses = '*'/" /etc/postgresql/9.6/ma
 echo "Enabled listen_addresses = '*'"
 echo "PostgreSQL: updating /etc/postgresql/9.6/main/pg_hba.conf"
 sudo cp /etc/postgresql/9.6/main/pg_hba.conf /etc/postgresql/9.6/main/pg_hba.conf.original
+sudo sed -i "s/peer$/\ttrust$/" /etc/postgresql/9.6/main/pg_hba.conf
 sudo sh -c 'cat >> /etc/postgresql/9.6/main/pg_hba.conf <<EOF
 # Accept all IPv4 connections - NOT FOR PRODUCTION
 host    all         all         0.0.0.0/0             md5
