@@ -13,7 +13,7 @@ sudo sh -c "echo 'PGGIS_PASS=${PGGIS_PASS}' >> /etc/profile.d/vagrant-postgis.sh
 export DEBIAN_FRONTEND="noninteractive"
 # Installation
 sudo apt-get update -y -q
-sudo apt-get -y -q install \
+sudo apt-get -y -qq install \
   postgis \
   postgresql \
   postgresql-contrib
