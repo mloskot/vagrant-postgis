@@ -41,8 +41,8 @@ echo "PostgreSQL: creating user ${PGGIS_USER}/${PGGIS_PASS}"
 sudo -u postgres psql -c "CREATE ROLE ${PGGIS_USER} WITH LOGIN SUPERUSER CREATEDB ENCRYPTED PASSWORD '${PGGIS_USER}'"
 echo "PostgreSQL: creating database ${PGGIS_USER} with PostGIS extension"
 #sudo -u postgres dropdb --if-exists ${PGGIS_USER}
-sudo -u postgres createdb ${PGGIS_USER} --owner=${PGGIS_USER}
-sudo -u postgres psql -d ${PGGIS_USER} -c "CREATE EXTENSION postgis;"
+sudo -u postgres createdb "${PGGIS_USER}" --owner="${PGGIS_USER}"
+sudo -u postgres psql -d "${PGGIS_USER}" -c "CREATE EXTENSION postgis;"
 echo "PostgreSQL: restarting"
 sudo service postgresql restart
 echo "PostgreSQL: DONE"
